@@ -1,0 +1,74 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Giphy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="stylesheet" type="text/css" media="screen" href="main.css" />-->
+    <!--<script src="main.js"></script>-->
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <h1>British Comedians</h1>
+
+<button data-comedian="Martin Clunes">Martin Clunes</button>
+<button data-comedian="John Cleese">John Cleese</button>
+<button data-comedian="Rowan Atkinson">Rowan Atkinson</button>
+<button data-comedian="Hugh Laurie">Hugh Laurie</button>
+<button data-comedian="Stephen Fry">Stephen Fry</button>
+<button data-comedian="Ricky Gervais">Ricky Gervais</button>
+<button data-comedian="Eddie Izzard">Eddie Izzard</button>
+<button data-comedian="Jimmy Carr">Jimmy Carr</button>
+
+<!--GIFS Go Here-->
+<div id="gifs-appear-here">
+
+</div>
+<!--JS-->
+<script type="text/javascript">
+
+//Click Even Listener
+$("button").on("click" , function(){
+    var comedian = $(this).attr("data-comedian");
+    console.log(comedian);
+    
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + comedian + "&api_key=9FphgEb8oSI6VpgULmYRTSNqBT1OUVyp&limit=15";
+        console.log(queryURL);
+
+// Performing an AJAX request with the queryURL
+$.ajax({
+    url : queryURL, 
+    method : "GET"
+    })
+    .then(function(response){
+        
+        console.log(queryURL)
+        console.log(response);
+        
+        var results = response.data; 
+        
+
+        for (var i = 0; i < results.length; i++) {
+            var comedianDiv = $("<div>");
+            var comedianImage = $("<img>");
+            
+            comedianImage.attr("src",results[i].images.fixed_height.url); 
+            comedianDiv.append(comedianImage);
+
+            $("#gifs-appear-here").prepend(comedianDiv);
+        }
+    
+    });
+
+   
+    
+    });
+
+
+  
+
+
+</script>
+</body>
+</html>
