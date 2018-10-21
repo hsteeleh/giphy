@@ -1,0 +1,23 @@
+h1{
+    color: yellow;
+    text-align: center;
+}
+
+
+body{
+    background-image: url("https://cdn3.vectorstock.com/i/1000x1000/00/92/theater-stage-background-vector-3340092.jpg");
+}
+
+
+
+
+.button {
+    background-color: navy; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+}
