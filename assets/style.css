@@ -9,13 +9,34 @@ body{
 }
 
 
+.search{
+    background-color: purple;
+    border: none;
+    color: white;
+    padding: 10px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+}
 
 
 .button {
-    background-color: navy; /* Green */
+    background-color: navy;
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 10px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+}
+
+.button2{
+    background-color: black;
+    border: none;
+    color: rgb(194, 213, 112);
+    padding: 10px 28px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
