@@ -5,12 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Giphy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--<link rel="stylesheet" type="text/css" media="screen" href="main.css" />-->
-    <!--<script src="main.js"></script>-->
+    
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 </head>
 <body>
     <h1>British Comedians</h1>
+
+
+    <!-- Rendered Buttons will get Dumped Here  -->
+    <div id="buttons-view"></div>
+
+    <form id="gif-form">
+      <label for="gif-input">Add a GIF</label>
+      <input type="text" id="gif-input"><br>
+
+      <!-- Button triggers usert input to be added -->
+      <input id="add-gif" type="submit" value="Add a GIF">
+    </form>
 
 <button data-comedian="Martin Clunes">Martin Clunes</button>
 <button data-comedian="John Cleese">John Cleese</button>
@@ -66,9 +77,30 @@ $.ajax({
     });
 
 
-  
+    //---button adds---
+    var gifs = [""];
+    function creategifName() {
+        var gifName = $(this).attr("data-name");
+      }
+    function renderButtons() {
+        $("#buttons-view").empty();
+        for (var i = 0; i < gifs.length; i++) {
+            var a = $("<button>");
+                a.addClass("gif");
+          a.attr("data-name", gifs[i]);
+          a.text(gifs[i]);
+          $("#buttons-view").append(a);
+        }
+      }
 
-
+    $("#add-gif").on("click", function(event) {
+        event.preventDefault();
+        var gif = $("#gif-input").val().trim();
+        gifs.push(gif);
+        renderButtons();
+      });
+      $(document).on("click", ".gif", alertgifName);
+      renderButtons();
 </script>
 </body>
 </html>
