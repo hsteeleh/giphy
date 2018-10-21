@@ -42,3 +42,7 @@ body{
     display: inline-block;
     font-size: 20px;
 }
+
+#gifs-appear-here{
+    text-align: center;
+}
